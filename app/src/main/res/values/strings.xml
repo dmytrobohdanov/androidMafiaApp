@@ -3,4 +3,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="drawer_item_get_players_number_text">Get player\'s number</string>
+    <string name="drawer_item_game_field_text">Game field</string>
 </resources>

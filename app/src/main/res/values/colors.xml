@@ -5,4 +5,10 @@
     <color name="colorAccent">#a1887f</color>
 
     <color name="btn_bg">#9cffffff</color>
+
+
+    <color name="drawer_bg_color">#9cffffff</color>
+    <color name="drawer_item_bg">#5d4037</color>
+    <color name="drawer_item_text_color">#FFFFFF</color>
+
 </resources>
