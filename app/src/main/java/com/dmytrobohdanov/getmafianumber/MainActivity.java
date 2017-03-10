@@ -2,9 +2,13 @@ package com.dmytrobohdanov.getmafianumber;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+import com.dmytrobohdanov.getmafianumber.Activities.DrawerFragmentNavigationActivity;
+import com.dmytrobohdanov.getmafianumber.Fragments.GetPlayersNumberFragment;
+
+public class MainActivity extends DrawerFragmentNavigationActivity {
 
 
     @Override
@@ -12,7 +16,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        drawerId = R.id.drawer_layout;
+        fragmentContainersId = R.id.main_activity_container;
+
+        showFragmentAddToBackStack(GetPlayersNumberFragment.TAG, null);
     }
 
 
+    @Override
+    protected void processDrawerSelection(View drawersElement) {
+
+    }
+
+    @Override
+    protected Fragment getFragmentToShowByTag(String fragmentTag, Object data) {
+        return new GetPlayersNumberFragment();
+    }
 }

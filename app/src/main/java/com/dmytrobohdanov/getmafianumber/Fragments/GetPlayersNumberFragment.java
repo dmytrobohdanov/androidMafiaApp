@@ -2,7 +2,6 @@ package com.dmytrobohdanov.getmafianumber.Fragments;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +13,9 @@ import com.dmytrobohdanov.getmafianumber.R;
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class GetPlayersNumberFragment extends Fragment implements View.OnClickListener {
+
+public class GetPlayersNumberFragment extends BaseFragment implements View.OnClickListener {
+    public static final String TAG = "getPlayersNumberFrTag";
     private ArrayList<Integer> numbers;
 
     private TextView displayNumber;
@@ -37,6 +35,11 @@ public class GetPlayersNumberFragment extends Fragment implements View.OnClickLi
 
     public GetPlayersNumberFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public String getFragmentTag() {
+        return TAG;
     }
 
     private void initViews(View rootView) {

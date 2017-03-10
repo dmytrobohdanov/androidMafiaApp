@@ -2,7 +2,6 @@ package com.dmytrobohdanov.getmafianumber.Activities;
 
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -40,7 +39,7 @@ public abstract class DrawerFragmentNavigationActivity extends AppCompatActivity
      *
      * @param drawersElement drawer's element clicked at
      */
-    abstract void processDrawerSelection(View drawersElement);
+    protected abstract void processDrawerSelection(View drawersElement);
 
 
     /**
@@ -95,7 +94,7 @@ public abstract class DrawerFragmentNavigationActivity extends AppCompatActivity
      * @param data        data to put in bundle
      * @return fragment to display, with of without bundle
      */
-    abstract Fragment getFragmentToShowByTag(String fragmentTag, Object data);
+    protected abstract Fragment getFragmentToShowByTag(String fragmentTag, Object data);
 
 
     public void setFragment(Fragment fragment) {
