@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.dmytrobohdanov.getmafianumber.Activities.DrawerFragmentNavigationActivity;
+import com.dmytrobohdanov.getmafianumber.Fragments.GameFieldFragment;
 import com.dmytrobohdanov.getmafianumber.Fragments.GetPlayersNumberFragment;
 
 public class MainActivity extends DrawerFragmentNavigationActivity {
@@ -26,11 +27,25 @@ public class MainActivity extends DrawerFragmentNavigationActivity {
 
     @Override
     protected void processDrawerSelection(View drawersElement) {
+        switch (drawersElement.getId()) {
+            case R.id.drawer_item_get_players_number:
+                showFragmentNoBackStack(GetPlayersNumberFragment.TAG, null);
+                break;
 
+            case R.id.drawer_item_game_field:
+                showFragmentAddToBackStack(GameFieldFragment.TAG, null);
+                break;
+        }
     }
 
     @Override
     protected Fragment getFragmentToShowByTag(String fragmentTag, Object data) {
-        return new GetPlayersNumberFragment();
+        switch (fragmentTag) {
+            case GameFieldFragment.TAG:
+                return new GameFieldFragment();
+
+            default:
+                return new GetPlayersNumberFragment();
+        }
     }
 }
