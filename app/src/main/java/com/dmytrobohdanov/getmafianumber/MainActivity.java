@@ -21,7 +21,8 @@ public class MainActivity extends DrawerFragmentNavigationActivity {
         drawerId = R.id.drawer_layout;
         fragmentContainersId = R.id.main_activity_container;
 
-        showFragmentAddToBackStack(GetPlayersNumberFragment.TAG, null);
+//        showFragmentAddToBackStack(GetPlayersNumberFragment.TAG, null);
+        showFragmentAddToBackStack(GameFieldFragment.TAG, null);
     }
 
 
