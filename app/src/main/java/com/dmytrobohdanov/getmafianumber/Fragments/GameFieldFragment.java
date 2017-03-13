@@ -6,6 +6,7 @@ import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.dmytrobohdanov.getmafianumber.R;
 import com.github.lzyzsd.circleprogress.DonutProgress;
@@ -14,14 +15,39 @@ import com.github.lzyzsd.circleprogress.DonutProgress;
 public class GameFieldFragment extends PlayerFragment {
     public static final String TAG = "gameFieldFragmentTag";
 
+    //constants
     private static final int ONE_SEC = 1000;
     private static final int ONE_MINUTE = 60000;
     private static final int HALF_MINUTE = 30000;
 
 
+    //views
+    Button start60;
+    Button start30;
+    Button cancel;
+
+    //vars
     DonutProgress timerView;
     CountDownTimer counter;
-//    int timeInterval;
+    boolean isHalfMinute;
+
+    View.OnClickListener buttonsClickHandler = view -> {
+        int buttonId = view.getId();
+        switch (buttonId) {
+            case R.id.btnStart60:
+                startTimerFor(ONE_MINUTE);
+                break;
+
+            case R.id.btnStart30:
+                startTimerFor(HALF_MINUTE);
+                break;
+
+            case R.id.btnCancel:
+                cancelTimer();
+                break;
+        }
+    };
+
 
     public GameFieldFragment() {
         // Required empty public constructor
@@ -38,21 +64,28 @@ public class GameFieldFragment extends PlayerFragment {
 
         //initializing timer view
         timerView = (DonutProgress) rootView.findViewById(R.id.timerView);
+        //buttons
+        start30 = (Button) rootView.findViewById(R.id.btnStart30);
+        start60 = (Button) rootView.findViewById(R.id.btnStart60);
+        cancel = (Button) rootView.findViewById(R.id.btnCancel);
+        setOnClickListeners(start60, start30, cancel);
 
-//        initTimer(ONE_MINUTE);
+        initTimer(ONE_MINUTE);
 
-        startTimerFor(ONE_MINUTE);
         return rootView;
     }
 
+
     private void startTimerFor(int sec) {
+        cancelTimer();
         initTimer(sec);
 
         //saving time interval
 //        timeInterval = sec;
+        isHalfMinute = (sec == HALF_MINUTE);
 
         //display time
-        timerView.setText("" + sec);
+//        timerView.setText("" + sec);
 
         //starting time count
         counter = new CountDownTimer(sec, ONE_SEC) {
@@ -80,22 +113,50 @@ public class GameFieldFragment extends PlayerFragment {
      */
     private void updateProgressOfTimer(long millisUntilFinished) {
         int secondsUntilFinish = (int) millisUntilFinished / 1000;
-        timerView.setProgress(secondsUntilFinish);
-
+        //setting text
         timerView.setText("" + secondsUntilFinish);
+
+        //setting progress
+        //if half minute - progress will be twice faster
+        if (isHalfMinute) {
+            secondsUntilFinish *= 2;
+        }
+        timerView.setProgress(secondsUntilFinish);
     }
 
     /**
      * Initializing timer with starting values
      *
-     * @param sec target seconds for count down
+     * @param millisec target seconds for count down
      */
-    private void initTimer(int sec) {
+    private void initTimer(int millisec) {
         if (timerView == null) {
             throw new IllegalStateException("timer view have not been initialized");
         }
 //        timerView.setMax(sec);
         timerView.setProgress(0);
+        timerView.setText("" + millisec / 1000);
+    }
+
+    /**
+     * Stops timer and init timer for one minute
+     */
+    private void cancelTimer() {
+        if (counter != null) {
+            counter.cancel();
+//            initTimer(ONE_MINUTE);
+        }
+    }
+
+    /**
+     * Setting listener to buttons
+     *
+     * @param buttons to set listener at
+     */
+    private void setOnClickListeners(Button... buttons) {
+        for (Button button : buttons) {
+            button.setOnClickListener(buttonsClickHandler);
+        }
     }
 
     @Override

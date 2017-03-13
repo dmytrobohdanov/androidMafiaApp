@@ -7,4 +7,6 @@
 
     <string name="drawer_item_get_players_number_text">Get player\'s number</string>
     <string name="drawer_item_game_field_text">Game field</string>
+    <string name="start_60">start 60</string>
+    <string name="start_30">start 30</string>
 </resources>
