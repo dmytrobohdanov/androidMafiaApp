@@ -39,8 +39,7 @@ public class GameFieldFragment extends PlayerFragment {
         int buttonId = view.getId();
         switch (buttonId) {
             case R.id.btnStart60:
-//                startTimerFor(ONE_MINUTE);
-                startTimerFor(2000);
+                startTimerFor(ONE_MINUTE);
                 break;
 
             case R.id.btnStart30:
