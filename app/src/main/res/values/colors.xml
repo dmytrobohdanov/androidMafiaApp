@@ -11,4 +11,7 @@
     <color name="drawer_item_bg">#5d4037</color>
     <color name="drawer_item_text_color">#FFFFFF</color>
 
+    <!--few time left color-->
+    <color name="few_time_left_color">#d32f2f</color>
+    <color name="timer_default_color">#4291F1</color>
 </resources>

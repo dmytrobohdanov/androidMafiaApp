@@ -125,7 +125,7 @@ public class GameFieldFragment extends PlayerFragment {
      * Handle action after count down finished
      */
     private void countDownFinished() {
-        timerView.setText("done");
+        timerView.setText("thanks");
         timerView.setProgress(0);
 
         vibrate();
@@ -152,6 +152,17 @@ public class GameFieldFragment extends PlayerFragment {
         //setting text
         timerView.setText("" + secondsUntilFinish);
 
+        //changing color if few time left
+        if (isHalfMinute) {
+            if (secondsUntilFinish == 5) {
+                timerView.setFinishedStrokeColor(getResources().getColor(R.color.few_time_left_color));
+            }
+        } else {
+            if (secondsUntilFinish == 15) {
+                timerView.setFinishedStrokeColor(getResources().getColor(R.color.few_time_left_color));
+            }
+        }
+
         //setting progress
         //if half minute - progress will be twice faster
         if (isHalfMinute) {
@@ -166,6 +177,8 @@ public class GameFieldFragment extends PlayerFragment {
      * @param millisec target seconds for count down
      */
     private void initTimer(int millisec) {
+        timerView.setFinishedStrokeColor(getResources().getColor(R.color.timer_default_color));
+
         if (timerView == null) {
             throw new IllegalStateException("timer view have not been initialized");
         }
