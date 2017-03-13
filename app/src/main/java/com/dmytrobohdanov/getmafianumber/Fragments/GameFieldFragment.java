@@ -35,7 +35,7 @@ public class GameFieldFragment extends PlayerFragment {
     //vibrator
     Vibrator vibrator;
 
-    View.OnClickListener buttonsClickHandler = view -> {
+    View.OnClickListener onClickListener = view -> {
         int buttonId = view.getId();
         switch (buttonId) {
             case R.id.btnStart60:
@@ -48,6 +48,10 @@ public class GameFieldFragment extends PlayerFragment {
 
             case R.id.btnCancel:
                 cancelTimer();
+                break;
+
+            case R.id.timerView:
+                startTimerFor(ONE_MINUTE);
                 break;
         }
     };
@@ -69,11 +73,13 @@ public class GameFieldFragment extends PlayerFragment {
 
         //initializing timer view
         timerView = (DonutProgress) rootView.findViewById(R.id.timerView);
+
         //buttons
         start30 = (Button) rootView.findViewById(R.id.btnStart30);
         start60 = (Button) rootView.findViewById(R.id.btnStart60);
         cancel = (Button) rootView.findViewById(R.id.btnCancel);
-        setOnClickListeners(start60, start30, cancel);
+
+        setOnClickListeners(start60, start30, cancel, timerView);
 
         initTimer(ONE_MINUTE);
 
@@ -183,9 +189,9 @@ public class GameFieldFragment extends PlayerFragment {
      *
      * @param buttons to set listener at
      */
-    private void setOnClickListeners(Button... buttons) {
-        for (Button button : buttons) {
-            button.setOnClickListener(buttonsClickHandler);
+    private void setOnClickListeners(View... buttons) {
+        for (View button : buttons) {
+            button.setOnClickListener(onClickListener);
         }
     }
 
