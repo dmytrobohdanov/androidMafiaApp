@@ -1,8 +1,10 @@
 package com.dmytrobohdanov.getmafianumber.Fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +22,6 @@ public class GameFieldFragment extends PlayerFragment {
     private static final int ONE_MINUTE = 60000;
     private static final int HALF_MINUTE = 30000;
 
-
     //views
     Button start60;
     Button start30;
@@ -31,11 +32,15 @@ public class GameFieldFragment extends PlayerFragment {
     CountDownTimer counter;
     boolean isHalfMinute;
 
+    //vibrator
+    Vibrator vibrator;
+
     View.OnClickListener buttonsClickHandler = view -> {
         int buttonId = view.getId();
         switch (buttonId) {
             case R.id.btnStart60:
-                startTimerFor(ONE_MINUTE);
+//                startTimerFor(ONE_MINUTE);
+                startTimerFor(2000);
                 break;
 
             case R.id.btnStart30:
@@ -73,6 +78,9 @@ public class GameFieldFragment extends PlayerFragment {
 
         initTimer(ONE_MINUTE);
 
+        //init vibrator
+        vibrator = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+
         return rootView;
     }
 
@@ -83,6 +91,9 @@ public class GameFieldFragment extends PlayerFragment {
      * @param millisec time in milli sec
      */
     private void startTimerFor(int millisec) {
+        //canceling vibration
+        vibrator.cancel();
+
         cancelTimer();
         initTimer(millisec);
 
@@ -111,6 +122,20 @@ public class GameFieldFragment extends PlayerFragment {
     private void countDownFinished() {
         timerView.setText("done");
         timerView.setProgress(0);
+
+        vibrate();
+    }
+
+    /**
+     * Make phone vibrate
+     */
+    private void vibrate() {
+        // Start without a delay
+        // Each element then alternates between vibrate, sleep, vibrate, sleep...
+        long[] pattern = {0, 300, 300, 300, 300, 600, 300};
+
+        //-1 means do not repeat
+        vibrator.vibrate(pattern, -1);
     }
 
     /**
