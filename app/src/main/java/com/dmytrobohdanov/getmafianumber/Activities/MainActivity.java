@@ -1,13 +1,13 @@
-package com.dmytrobohdanov.getmafianumber;
+package com.dmytrobohdanov.getmafianumber.Activities;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
-import com.dmytrobohdanov.getmafianumber.Activities.DrawerFragmentNavigationActivity;
 import com.dmytrobohdanov.getmafianumber.Fragments.GameFieldFragment;
 import com.dmytrobohdanov.getmafianumber.Fragments.GetPlayersNumberFragment;
+import com.dmytrobohdanov.getmafianumber.R;
 
 public class MainActivity extends DrawerFragmentNavigationActivity {
 

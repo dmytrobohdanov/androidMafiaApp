@@ -46,6 +46,8 @@
                     android:drawablePadding="@dimen/drawer_margin_padding_4dp"
                     android:gravity="center_vertical|end"
                     android:onClick="onNavigationItemSelected"
+                    android:paddingLeft="@dimen/drawer_margin_padding_16dp"
+                    android:paddingRight="@dimen/drawer_margin_padding_16dp"
                     android:text="@string/drawer_item_get_players_number_text"
                     android:textAllCaps="true"
                     android:textColor="@color/drawer_item_text_color" />
@@ -63,6 +65,8 @@
                     android:drawablePadding="@dimen/drawer_margin_padding_4dp"
                     android:gravity="center_vertical|end"
                     android:onClick="onNavigationItemSelected"
+                    android:paddingLeft="@dimen/drawer_margin_padding_16dp"
+                    android:paddingRight="@dimen/drawer_margin_padding_16dp"
                     android:text="@string/drawer_item_game_field_text"
                     android:textAllCaps="true"
                     android:textColor="@color/drawer_item_text_color" />

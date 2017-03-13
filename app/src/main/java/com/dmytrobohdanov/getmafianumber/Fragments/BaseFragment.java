@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
-import com.dmytrobohdanov.getmafianumber.MainActivity;
+import com.dmytrobohdanov.getmafianumber.Activities.MainActivity;
 
 /**
  *
