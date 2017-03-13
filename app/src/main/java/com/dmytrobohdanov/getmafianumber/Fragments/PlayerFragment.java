@@ -121,6 +121,9 @@ abstract public class PlayerFragment extends BaseFragment {
     public void play() {
         if (!playerOnPause) {
             mediaPlayer = new MediaPlayer();
+
+            mediaPlayer.setOnCompletionListener(mediaPlayerListener -> play(PLAY_NEXT));
+
             AssetFileDescriptor afd;
             try {
 //                afd = getContext().getAssets().openFd("temp_audio.mp3");
