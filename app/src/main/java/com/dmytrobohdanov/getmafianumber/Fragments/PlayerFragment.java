@@ -35,10 +35,14 @@ abstract public class PlayerFragment extends BaseFragment {
     //player support var
     boolean playerOnPause = false;
     MediaPlayer mediaPlayer = null;
+
     //index of currently playing song
     int indexOfPlayingSong = 0;
+
     //array of song's files names
     private String[] songsArray = {"1.mp3", "2.mp3", "3.mp3", "4.mp3", "5.mp3"};
+
+    //listener
     View.OnClickListener playerClickListener = (view) -> {
         switch (view.getId()) {
             case R.id.player_play:
