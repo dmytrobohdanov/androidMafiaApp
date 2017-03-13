@@ -76,19 +76,24 @@ public class GameFieldFragment extends PlayerFragment {
     }
 
 
-    private void startTimerFor(int sec) {
+    /**
+     * Starting timer for specified interval of time
+     *
+     * @param millisec time in milli sec
+     */
+    private void startTimerFor(int millisec) {
         cancelTimer();
-        initTimer(sec);
+        initTimer(millisec);
 
         //saving time interval
-//        timeInterval = sec;
-        isHalfMinute = (sec == HALF_MINUTE);
+//        timeInterval = millisec;
+        isHalfMinute = (millisec == HALF_MINUTE);
 
         //display time
-//        timerView.setText("" + sec);
+//        timerView.setText("" + millisec);
 
         //starting time count
-        counter = new CountDownTimer(sec, ONE_SEC) {
+        counter = new CountDownTimer(millisec, ONE_SEC) {
             public void onTick(long millisUntilFinished) {
                 updateProgressOfTimer(millisUntilFinished);
             }
@@ -144,7 +149,7 @@ public class GameFieldFragment extends PlayerFragment {
     private void cancelTimer() {
         if (counter != null) {
             counter.cancel();
-//            initTimer(ONE_MINUTE);
+            initTimer(ONE_MINUTE);
         }
     }
 
