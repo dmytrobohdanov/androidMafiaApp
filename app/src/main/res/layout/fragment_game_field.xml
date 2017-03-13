@@ -18,6 +18,13 @@
         android:background="@android:color/white">
 
         <ImageView
+            android:id="@+id/player_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_skip_previous_black_24dp" />
+
+        <ImageView
             android:id="@+id/player_play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,17 +47,24 @@
             app:srcCompat="@drawable/ic_stop_black_24dp" />
 
         <ImageView
-            android:id="@+id/player_volume_max"
+            android:id="@+id/player_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            app:srcCompat="@drawable/ic_skip_next_black_24dp" />
+
+        <ImageView
+            android:id="@+id/player_volume_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
             app:srcCompat="@drawable/ic_volume_up_black_24dp" />
 
         <ImageView
             android:id="@+id/player_volume_mute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_volume_off_black_24dp" />
 
