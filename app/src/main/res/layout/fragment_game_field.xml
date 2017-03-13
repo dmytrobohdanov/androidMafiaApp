@@ -13,7 +13,8 @@
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
+        android:alpha="0.7"
         android:background="@android:color/white">
 
         <ImageView
@@ -113,6 +114,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
+                    android:alpha="0.8"
                     android:text="@string/start_60" />
 
                 <Button
@@ -122,6 +124,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
+                    android:alpha="0.8"
                     android:text="@string/start_30" />
             </LinearLayout>
 
@@ -133,6 +136,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
+                android:alpha="0.8"
                 android:text="@string/cancel"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
