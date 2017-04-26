@@ -153,7 +153,7 @@ public class GameFieldFragment extends PlayerFragment {
         if (flag == FLAG_VIBRATE_FINISH) {
             // Start without a delay
             // Each element then alternates between vibrate, sleep, vibrate, sleep...
-            pattern = new long[]{0, 400, 300, 500, 300, 800, 300};
+            pattern = new long[]{0, 400, 200, 500, 100, 800, 300};
         } else {
             pattern = new long[]{0, 600, 100};
         }
