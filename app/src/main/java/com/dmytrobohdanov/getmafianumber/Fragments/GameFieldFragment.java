@@ -20,11 +20,12 @@ import butterknife.ButterKnife;
 
 public class GameFieldFragment extends PlayerFragment {
     public static final String TAG = "gameFieldFragmentTag";
-
-    //constants
-    private static final int ONE_SEC = 1000;
-    private static final int ONE_MINUTE = 60000;
     private static final int HALF_MINUTE = 30000;
+    //constants
+    private final int ONE_SEC = 1000;
+    private final int ONE_MINUTE = 60000;
+    private final int FLAG_VIBRATE_PREFINISH = 3;
+    private final int FLAG_VIBRATE_FINISH = 5;
 
     //views
     @BindView(R.id.btnStart60)
@@ -141,16 +142,21 @@ public class GameFieldFragment extends PlayerFragment {
         timerView.setText("thanks");
         timerView.setProgress(0);
 
-        vibrate();
+        vibrate(FLAG_VIBRATE_FINISH);
     }
 
     /**
      * Make phone vibrate
      */
-    private void vibrate() {
-        // Start without a delay
-        // Each element then alternates between vibrate, sleep, vibrate, sleep...
-        long[] pattern = {0, 300, 300, 300, 300, 600, 300};
+    private void vibrate(int flag) {
+        long[] pattern;
+        if (flag == FLAG_VIBRATE_FINISH) {
+            // Start without a delay
+            // Each element then alternates between vibrate, sleep, vibrate, sleep...
+            pattern = new long[]{0, 400, 300, 500, 300, 800, 300};
+        } else {
+            pattern = new long[]{0, 600, 100};
+        }
 
         //-1 means do not repeat
         vibrator.vibrate(pattern, -1);
@@ -169,10 +175,12 @@ public class GameFieldFragment extends PlayerFragment {
         if (isHalfMinute) {
             if (secondsUntilFinish == 5) {
                 timerView.setFinishedStrokeColor(getResources().getColor(R.color.few_time_left_color));
+                vibrate(FLAG_VIBRATE_PREFINISH);
             }
         } else {
             if (secondsUntilFinish == 15) {
                 timerView.setFinishedStrokeColor(getResources().getColor(R.color.few_time_left_color));
+                vibrate(FLAG_VIBRATE_PREFINISH);
             }
         }
 
