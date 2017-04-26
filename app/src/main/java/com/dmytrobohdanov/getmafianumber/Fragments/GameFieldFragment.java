@@ -13,6 +13,9 @@ import android.widget.Button;
 import com.dmytrobohdanov.getmafianumber.R;
 import com.github.lzyzsd.circleprogress.DonutProgress;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class GameFieldFragment extends PlayerFragment {
     public static final String TAG = "gameFieldFragmentTag";
@@ -23,12 +26,19 @@ public class GameFieldFragment extends PlayerFragment {
     private static final int HALF_MINUTE = 30000;
 
     //views
+    @BindView(R.id.btnStart60)
     Button start60;
+
+    @BindView(R.id.btnStart30)
     Button start30;
+
+    @BindView(R.id.btnCancel)
     Button cancel;
 
-    //vars
+    @BindView(R.id.timerView)
     DonutProgress timerView;
+
+    //vars
     CountDownTimer counter;
     boolean isHalfMinute;
 
@@ -68,16 +78,11 @@ public class GameFieldFragment extends PlayerFragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_game_field, container, false);
 
+        //init player's view
         initPlayerViews(rootView, R.id.player_play, R.id.player_pause, R.id.player_stop,
                 R.id.player_volume_max, R.id.player_volume_mute, R.id.player_previous, R.id.player_next);
 
-        //initializing timer view
-        timerView = (DonutProgress) rootView.findViewById(R.id.timerView);
-
-        //buttons
-        start30 = (Button) rootView.findViewById(R.id.btnStart30);
-        start60 = (Button) rootView.findViewById(R.id.btnStart60);
-        cancel = (Button) rootView.findViewById(R.id.btnCancel);
+        ButterKnife.bind(this, rootView);
 
         setOnClickListeners(start60, start30, cancel, timerView);
 

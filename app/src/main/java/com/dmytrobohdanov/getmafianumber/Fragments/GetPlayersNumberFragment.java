@@ -13,24 +13,39 @@ import com.dmytrobohdanov.getmafianumber.R;
 import java.util.ArrayList;
 import java.util.Random;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class GetPlayersNumberFragment extends BaseFragment implements View.OnClickListener {
     public static final String TAG = "getPlayersNumberFrTag";
+    @BindView(R.id.display_number)
+    TextView displayNumber;
+    @BindView(R.id.free_places_1)
+    TextView freePlace1;
+    @BindView(R.id.free_places_2)
+    TextView freePlace2;
+    @BindView(R.id.free_places_3)
+    TextView freePlace3;
+    @BindView(R.id.free_places_4)
+    TextView freePlace4;
+    @BindView(R.id.free_places_5)
+    TextView freePlace5;
+    @BindView(R.id.free_places_6)
+    TextView freePlace6;
+    @BindView(R.id.free_places_7)
+    TextView freePlace7;
+    @BindView(R.id.free_places_8)
+    TextView freePlace8;
+    @BindView(R.id.free_places_9)
+    TextView freePlace9;
+    @BindView(R.id.free_places_10)
+    TextView freePlace10;
+    @BindView(R.id.btn_get_number)
+    Button getNumber;
+    @BindView(R.id.btn_start_again)
+    Button startAgain;
     private ArrayList<Integer> numbers;
-
-    private TextView displayNumber;
-    private TextView freePlace1;
-    private TextView freePlace2;
-    private TextView freePlace3;
-    private TextView freePlace4;
-    private TextView freePlace5;
-    private TextView freePlace6;
-    private TextView freePlace7;
-    private TextView freePlace8;
-    private TextView freePlace9;
-    private TextView freePlace10;
-    private Button getNumber;
-    private Button startAgain;
 
 
     public GetPlayersNumberFragment() {
@@ -43,29 +58,17 @@ public class GetPlayersNumberFragment extends BaseFragment implements View.OnCli
     }
 
     private void initViews(View rootView) {
-        displayNumber = (TextView) rootView.findViewById(R.id.display_number);
-        freePlace1 = (TextView) rootView.findViewById(R.id.free_places_1);
-        freePlace2 = (TextView) rootView.findViewById(R.id.free_places_2);
-        freePlace3 = (TextView) rootView.findViewById(R.id.free_places_3);
-        freePlace4 = (TextView) rootView.findViewById(R.id.free_places_4);
-        freePlace5 = (TextView) rootView.findViewById(R.id.free_places_5);
-        freePlace6 = (TextView) rootView.findViewById(R.id.free_places_6);
-        freePlace7 = (TextView) rootView.findViewById(R.id.free_places_7);
-        freePlace8 = (TextView) rootView.findViewById(R.id.free_places_8);
-        freePlace9 = (TextView) rootView.findViewById(R.id.free_places_9);
-        freePlace10 = (TextView) rootView.findViewById(R.id.free_places_10);
 
-        getNumber = (Button) rootView.findViewById(R.id.btn_get_number);
-        getNumber.setOnClickListener(this);
-
-        startAgain = (Button) rootView.findViewById(R.id.btn_start_again);
-        startAgain.setOnClickListener(this);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_get_players_number, container, false);
+
+        ButterKnife.bind(this, rootView);
+        getNumber.setOnClickListener(this);
+        startAgain.setOnClickListener(this);
 
         numbers = getNewFullArray();
         initViews(rootView);
