@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.dmytrobohdanov.getmafianumber.R;
+import com.dmytrobohdanov.getmafianumber.Utils;
 import com.github.lzyzsd.circleprogress.DonutProgress;
 
 import butterknife.BindView;
@@ -73,6 +74,12 @@ public class GameFieldFragment extends PlayerFragment {
 
 
     @Override
+    public void onPause() {
+        Utils.keepScreenOn(getActivity(), false);
+        super.onPause();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -91,6 +98,7 @@ public class GameFieldFragment extends PlayerFragment {
         //init vibrator
         vibrator = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
 
+        Utils.keepScreenOn(getActivity(), true);
         return rootView;
     }
 
