@@ -20,9 +20,9 @@ import butterknife.ButterKnife;
 
 public class GameFieldFragment extends PlayerFragment {
     public static final String TAG = "gameFieldFragmentTag";
-    private static final int HALF_MINUTE = 30000;
     //constants
     private final int ONE_SEC = 1000;
+    private final int HALF_MINUTE = 30000;
     private final int ONE_MINUTE = 60000;
     private final int FLAG_VIBRATE_PREFINISH = 3;
     private final int FLAG_VIBRATE_FINISH = 5;
