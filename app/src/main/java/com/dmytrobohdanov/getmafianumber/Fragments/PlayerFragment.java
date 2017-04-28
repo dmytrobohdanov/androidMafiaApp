@@ -116,6 +116,29 @@ abstract public class PlayerFragment extends BaseFragment {
     }
 
     /**
+     * Playing audio file with specified fileName
+     *
+     * @param fileName name of audio file in assets to play
+     */
+    public void play(String fileName) {
+        MediaPlayer localMediaPlayer = new MediaPlayer();
+        AssetFileDescriptor afd;
+        try {
+            afd = getContext().getAssets().openFd(fileName);
+
+            localMediaPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+
+            afd.close();
+            localMediaPlayer.prepare();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        localMediaPlayer.start();
+        localMediaPlayer.setOnCompletionListener(mp -> localMediaPlayer.release());
+    }
+
+    /**
      * Handle play click
      */
     public void play() {
