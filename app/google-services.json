@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "812375881911",
+    "firebase_url": "https://mafinclubapp.firebaseio.com",
+    "project_id": "mafinclubapp",
+    "storage_bucket": "mafinclubapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812375881911:android:5eb7fa7617be7aab",
+        "android_client_info": {
+          "package_name": "com.dmytrobohdanov.getmafianumber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "812375881911-13giv5rdv4rgsp7663asd4roc9lkv9v1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dmytrobohdanov.getmafianumber",
+            "certificate_hash": "f1f0f69cf980ba5b07122e83787124ab5fbe9613"
+          }
+        },
+        {
+          "client_id": "812375881911-558soasjohf9n7p2h7nmd2ld36ngqr7t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKgmLjuqpRW6nxi4jADVGyhxqzIq9wmkU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "812375881911-558soasjohf9n7p2h7nmd2ld36ngqr7t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
