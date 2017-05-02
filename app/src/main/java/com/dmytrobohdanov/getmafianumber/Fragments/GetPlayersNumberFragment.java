@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.dmytrobohdanov.getmafianumber.Fragments.SupportFragments.BaseFragment;
 import com.dmytrobohdanov.getmafianumber.R;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.dmytrobohdanov.getmafianumber.Fragments;
+package com.dmytrobohdanov.getmafianumber.Fragments.SupportFragments;
 
 
 import android.os.Bundle;
