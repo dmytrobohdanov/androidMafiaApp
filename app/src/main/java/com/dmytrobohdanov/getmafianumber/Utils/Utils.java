@@ -1,4 +1,4 @@
-package com.dmytrobohdanov.getmafianumber;
+package com.dmytrobohdanov.getmafianumber.Utils;
 
 import android.app.Activity;
 import android.view.WindowManager;

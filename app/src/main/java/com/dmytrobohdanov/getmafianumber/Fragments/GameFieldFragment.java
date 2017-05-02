@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.dmytrobohdanov.getmafianumber.R;
-import com.dmytrobohdanov.getmafianumber.Utils;
+import com.dmytrobohdanov.getmafianumber.Utils.Utils;
 import com.github.lzyzsd.circleprogress.DonutProgress;
 
 import butterknife.BindView;
