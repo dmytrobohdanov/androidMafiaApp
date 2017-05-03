@@ -12,6 +12,12 @@
     <color name="drawer_item_bg">#000000</color>
     <color name="drawer_item_text_color">#dcffffff</color>
 
+    <!-- players list fragment -->
+    <color name="players_list_cardview_bg_color">#e0ffffff</color>
+    <color name="players_list_cardview_text_name_color">#220000</color>
+    <color name="players_list_cardview_text_alias_color">#c2320000</color>
+
+
     <!--few time left color-->
     <color name="few_time_left_color">#d32f2f</color>
     <color name="timer_default_color">#4291F1</color>

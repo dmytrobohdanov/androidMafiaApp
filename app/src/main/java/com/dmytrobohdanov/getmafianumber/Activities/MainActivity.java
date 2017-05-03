@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.dmytrobohdanov.getmafianumber.Fragments.GameFieldFragment;
 import com.dmytrobohdanov.getmafianumber.Fragments.GetPlayersNumberFragment;
+import com.dmytrobohdanov.getmafianumber.Fragments.PlayersListFragment.PlayersListFragment;
 import com.dmytrobohdanov.getmafianumber.R;
 
 public class MainActivity extends DrawerFragmentNavigationActivity {
@@ -48,6 +49,10 @@ public class MainActivity extends DrawerFragmentNavigationActivity {
             case R.id.drawer_item_game_field:
                 showFragmentAddToBackStack(GameFieldFragment.TAG, null);
                 break;
+
+            case R.id.drawer_item_players_list:
+                showFragmentAddToBackStack(PlayersListFragment.TAG, null);
+                break;
         }
     }
 
@@ -56,6 +61,9 @@ public class MainActivity extends DrawerFragmentNavigationActivity {
         switch (fragmentTag) {
             case GameFieldFragment.TAG:
                 return new GameFieldFragment();
+
+            case PlayersListFragment.TAG:
+                return new PlayersListFragment();
 
             default:
                 return new GetPlayersNumberFragment();
