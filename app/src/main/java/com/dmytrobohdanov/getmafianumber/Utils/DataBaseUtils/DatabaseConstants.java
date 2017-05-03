@@ -13,5 +13,8 @@ public class DatabaseConstants {
     public static final String TEAM_CITIZENS = "citizensTeam";
     public static final String TEAM_NONE = "noneTeam";
 
-
+    //db
+    //children
+    public static final String DB_PLAYERS = "players";
+    public static final String DB_GAMES = "games";
 }

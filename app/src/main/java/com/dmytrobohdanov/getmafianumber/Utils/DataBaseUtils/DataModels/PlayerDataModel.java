@@ -1,10 +1,16 @@
 package com.dmytrobohdanov.getmafianumber.Utils.DataBaseUtils.DataModels;
 
+import com.google.firebase.database.Exclude;
+import com.google.firebase.database.IgnoreExtraProperties;
+
 /**
  * todo
  */
+@IgnoreExtraProperties
 public class PlayerDataModel {
+    @Exclude
     private int id;
+
     private String name;
     private String alias;
 
@@ -16,6 +22,11 @@ public class PlayerDataModel {
      */
     public PlayerDataModel(String name) {
         this.name = name;
+    }
+
+    public PlayerDataModel(String name, String alias) {
+        this.name = name;
+        this.alias = alias;
     }
 
     public PlayerDataModel(int id, String name, String alias) {
