@@ -1,7 +1,6 @@
 package com.dmytrobohdanov.getmafianumber.Fragments;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
@@ -21,19 +20,20 @@ public class AddNewPlayerDialogFragment extends DialogFragment {
 
         builder.setView(getActivity().getLayoutInflater().inflate(R.layout.dialog_add_new_player, null));
 
-        builder.setPositiveButton(R.string.add, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                // User clicked OK button
-                Toast.makeText(getContext(), "ok", Toast.LENGTH_SHORT).show();
-            }
+        builder.setPositiveButton(R.string.add, (dialog, id) -> {
+            // User clicked OK button
+            Toast.makeText(getContext(), "ok", Toast.LENGTH_SHORT).show();
         });
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                // User cancelled the dialog
-                dismiss();
-            }
+        builder.setNegativeButton(R.string.cancel, (dialog, id) -> {
+            // User cancelled the dialog
+            dismiss();
         });
 
         return builder.create();
+    }
+
+    public interface AddNewPlayerDialogListener {
+        void onDialogPositiveClick(DialogFragment dialog);
+//        public void onDialogNegativeClick(DialogFragment dialog);
     }
 }

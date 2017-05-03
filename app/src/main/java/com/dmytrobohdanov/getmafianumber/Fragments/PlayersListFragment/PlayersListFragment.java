@@ -3,6 +3,7 @@ package com.dmytrobohdanov.getmafianumber.Fragments.PlayersListFragment;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,7 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class PlayersListFragment extends BaseFragment {
+public class PlayersListFragment extends BaseFragment implements AddNewPlayerDialogFragment.AddNewPlayerDialogListener {
     public static final String TAG = "playersListFragment";
 
     @BindView(R.id.players_list_fragment_fab)
@@ -62,5 +63,11 @@ public class PlayersListFragment extends BaseFragment {
     @Override
     public String getFragmentTag() {
         return TAG;
+    }
+
+
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        //todo
     }
 }
