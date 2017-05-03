@@ -13,4 +13,10 @@
     <string name="navigation_drawer_open">open</string>
     <string name="navigation_drawer_close">close</string>
     <string name="drawer_item_players_list">Players list</string>
+
+    <!--add player dialog-->
+    <string name="add_player_dialog_player_name">player\'s name</string>
+    <string name="add_player_dialog_player_alias">player\'s alias</string>
+    <string name="add_player_dialog_title">Add new player</string>
+    <string name="add">add</string>
 </resources>
