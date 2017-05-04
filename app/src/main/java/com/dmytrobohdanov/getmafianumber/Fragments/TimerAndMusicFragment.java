@@ -19,8 +19,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class GameFieldFragment extends PlayerFragment {
-    public static final String TAG = "gameFieldFragmentTag";
+public class TimerAndMusicFragment extends PlayerFragment {
+    public static final String TAG = "timerMusicFrTag";
     //constants
     private final int ONE_SEC = 1000;
     private final int HALF_MINUTE = 30000;
@@ -70,7 +70,7 @@ public class GameFieldFragment extends PlayerFragment {
     };
 
 
-    public GameFieldFragment() {
+    public TimerAndMusicFragment() {
         // Required empty public constructor
     }
 
@@ -85,7 +85,7 @@ public class GameFieldFragment extends PlayerFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_game_field, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_timer_and_music, container, false);
 
         //init player's view
         initPlayerViews(rootView, R.id.player_play, R.id.player_pause, R.id.player_stop,
