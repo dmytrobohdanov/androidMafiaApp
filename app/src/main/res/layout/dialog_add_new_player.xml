@@ -14,4 +14,15 @@
         android:layout_marginTop="16dp"
         android:hint="@string/add_player_dialog_player_name"
         android:inputType="text" />
+
+    <EditText
+        android:id="@+id/add_player_dialog_player_alias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/add_player_dialog_player_alias"
+        android:inputType="text" />
 </LinearLayout>

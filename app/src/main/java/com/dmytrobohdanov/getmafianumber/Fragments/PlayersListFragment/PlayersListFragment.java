@@ -2,9 +2,7 @@ package com.dmytrobohdanov.getmafianumber.Fragments.PlayersListFragment;
 
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -24,7 +22,7 @@ import butterknife.ButterKnife;
 import io.reactivex.subjects.BehaviorSubject;
 
 
-public class PlayersListFragment extends BaseFragment implements AddNewPlayerDialogFragment.AddNewPlayerDialogListener {
+public class PlayersListFragment extends BaseFragment {
     public static final String TAG = "playersListFragment";
 
     @BindView(R.id.players_list_fragment_fab)
@@ -45,27 +43,13 @@ public class PlayersListFragment extends BaseFragment implements AddNewPlayerDia
         ButterKnife.bind(this, rootView);
         initRV(rootView);
 
-        DatabaseUtils.addNewUser(new PlayerDataModel("dbName1", "dbAlias1"));
-        DatabaseUtils.addNewUser(new PlayerDataModel("dbName2", "dbAlias2"));
-        DatabaseUtils.addNewUser(new PlayerDataModel("dbName3", "dbAlias3"));
-
-        new Handler().postDelayed(() -> {
-            DatabaseUtils.addNewUser(new PlayerDataModel("dbName4", "dbAlias5"));
-            DatabaseUtils.addNewUser(new PlayerDataModel("dbName5", "dbAlias5"));
-        }, 10000);
-
-        fab.setOnClickListener(view -> showAddNewPlayerDialog());
+        fab.setOnClickListener(view ->
+                new AddNewPlayerDialogFragment()
+                        .show(getActivity().getSupportFragmentManager(), "AddNewPlayerDialog"));
 
         return rootView;
     }
 
-
-    private void showAddNewPlayerDialog() {
-        AddNewPlayerDialogFragment dialog = new AddNewPlayerDialogFragment();
-        dialog.show(getActivity().getSupportFragmentManager(), "AddNewPlayerDialog");
-        DatabaseUtils.addNewUser(new PlayerDataModel("dbName6", "dbAlias6"));
-        DatabaseUtils.addNewUser(new PlayerDataModel("dbName7", "dbAlias7"));
-    }
 
     private void initRV(View rootView) {
         recyclerView = (RecyclerView) rootView.findViewById(R.id.fragment_players_list_rv_players);
@@ -85,11 +69,5 @@ public class PlayersListFragment extends BaseFragment implements AddNewPlayerDia
     @Override
     public String getFragmentTag() {
         return TAG;
-    }
-
-
-    @Override
-    public void onDialogPositiveClick(DialogFragment dialog) {
-        //todo
     }
 }
