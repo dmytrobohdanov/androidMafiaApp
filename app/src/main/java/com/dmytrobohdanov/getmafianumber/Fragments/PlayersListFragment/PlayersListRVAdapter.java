@@ -3,6 +3,7 @@ package com.dmytrobohdanov.getmafianumber.Fragments.PlayersListFragment;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,7 @@ public class PlayersListRVAdapter extends RecyclerView.Adapter<PlayersListRVHold
     public void onBindViewHolder(PlayersListRVHolder holder, int position) {
         holder.textViewName.setText(playersList.get(position).getName());
         holder.textViewAlias.setText(playersList.get(position).getAlias());
+        Log.d("ping", "onBindViewHolder: id = " + playersList.get(position).getId());
     }
 
     @Override

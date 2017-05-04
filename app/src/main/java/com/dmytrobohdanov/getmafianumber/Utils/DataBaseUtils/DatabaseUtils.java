@@ -53,7 +53,9 @@ public class DatabaseUtils {
                 ArrayList<PlayerDataModel> playerDataModels = new ArrayList<>();
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    playerDataModels.add(snapshot.getValue(PlayerDataModel.class));
+                    PlayerDataModel player = snapshot.getValue(PlayerDataModel.class);
+                    player.setId(snapshot.getKey());
+                    playerDataModels.add(player);
                 }
 
                 subject.onNext(playerDataModels);
