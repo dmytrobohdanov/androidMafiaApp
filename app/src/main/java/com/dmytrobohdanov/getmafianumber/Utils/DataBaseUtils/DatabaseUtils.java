@@ -12,7 +12,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-import io.reactivex.subjects.ReplaySubject;
+import io.reactivex.subjects.BehaviorSubject;
+
 
 public class DatabaseUtils {
     public static void init() {
@@ -40,10 +41,9 @@ public class DatabaseUtils {
         ref.child(DatabaseConstants.DB_PLAYERS)
                 .push()
                 .setValue(playerDataModel);
-//                .addOnCompleteListener(task -> subject.onNext(null));
     }
 
-    public static void getPlayersList(ReplaySubject<ArrayList<PlayerDataModel>> subject) {
+    public static void getPlayersList(BehaviorSubject<ArrayList<PlayerDataModel>> subject) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference().child(DatabaseConstants.DB_PLAYERS);
         Query query = ref.orderByKey();

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.reactivex.subjects.ReplaySubject;
+import io.reactivex.subjects.BehaviorSubject;
 
 
 public class PlayersListFragment extends BaseFragment implements AddNewPlayerDialogFragment.AddNewPlayerDialogListener {
@@ -29,7 +29,6 @@ public class PlayersListFragment extends BaseFragment implements AddNewPlayerDia
 
     @BindView(R.id.players_list_fragment_fab)
     FloatingActionButton fab;
-    ReplaySubject<Void> subject;
     private RecyclerView recyclerView;
     private PlayersListRVAdapter rvAdapter;
 
@@ -46,9 +45,6 @@ public class PlayersListFragment extends BaseFragment implements AddNewPlayerDia
         ButterKnife.bind(this, rootView);
         initRV(rootView);
 
-//        subject = PublishSubject.create();
-//        subject.subscribe(this::notifyUserAdded);
-//
         DatabaseUtils.addNewUser(new PlayerDataModel("dbName1", "dbAlias1"));
         DatabaseUtils.addNewUser(new PlayerDataModel("dbName2", "dbAlias2"));
         DatabaseUtils.addNewUser(new PlayerDataModel("dbName3", "dbAlias3"));
@@ -63,10 +59,6 @@ public class PlayersListFragment extends BaseFragment implements AddNewPlayerDia
         return rootView;
     }
 
-//    public void notifyUserAdded(Void v) {
-////        rvAdapter.setData(DatabaseUtils.getPlayersList());
-//        rvAdapter.notifyDataSetChanged();
-//    }
 
     private void showAddNewPlayerDialog() {
         AddNewPlayerDialogFragment dialog = new AddNewPlayerDialogFragment();
@@ -82,7 +74,7 @@ public class PlayersListFragment extends BaseFragment implements AddNewPlayerDia
         recyclerView.setLayoutManager(rvLayoutManager);
 
 
-        ReplaySubject<ArrayList<PlayerDataModel>> subject = ReplaySubject.create();
+        BehaviorSubject<ArrayList<PlayerDataModel>> subject = BehaviorSubject.create();
 
         DatabaseUtils.getPlayersList(subject);
         rvAdapter = new PlayersListRVAdapter(getContext(), subject);

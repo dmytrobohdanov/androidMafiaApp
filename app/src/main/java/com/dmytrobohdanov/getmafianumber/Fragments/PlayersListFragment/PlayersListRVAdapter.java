@@ -12,19 +12,17 @@ import com.dmytrobohdanov.getmafianumber.Utils.DataBaseUtils.DataModels.PlayerDa
 
 import java.util.ArrayList;
 
-import io.reactivex.subjects.ReplaySubject;
+import io.reactivex.subjects.BehaviorSubject;
+
 
 public class PlayersListRVAdapter extends RecyclerView.Adapter<PlayersListRVHolder> {
 
     private Context context;
-    private ReplaySubject subject;
-
-//    private ArrayList<String> namesList = new ArrayList<>(Arrays.asList("Name 0", "Name 1",
-//            "Name 2", "Name 3", "Name 4", "Name 5", "Name 6", "Name 7", "Name 8", "Name 9"));
+    private BehaviorSubject subject;
 
     private ArrayList<PlayerDataModel> playersList = new ArrayList<>();
 
-    public PlayersListRVAdapter(Context context, ReplaySubject<ArrayList<PlayerDataModel>> subject) {
+    public PlayersListRVAdapter(Context context, BehaviorSubject<ArrayList<PlayerDataModel>> subject) {
         this.context = context;
         this.subject = subject;
         subject.subscribe(this::handleDataUpdate);
