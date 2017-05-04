@@ -4,12 +4,12 @@ import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 /**
- * todo
+ * Database model of player's data
  */
 @IgnoreExtraProperties
 public class PlayerDataModel {
     @Exclude
-    private int id;
+    private String id;
 
     private String name;
     private String alias;
@@ -29,7 +29,7 @@ public class PlayerDataModel {
         this.alias = alias;
     }
 
-    public PlayerDataModel(int id, String name, String alias) {
+    public PlayerDataModel(String id, String name, String alias) {
         this.id = id;
         this.name = name;
         this.alias = alias;
@@ -81,11 +81,12 @@ public class PlayerDataModel {
         return "true";
     }
 
-    public int getId() {
+    @Exclude
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
