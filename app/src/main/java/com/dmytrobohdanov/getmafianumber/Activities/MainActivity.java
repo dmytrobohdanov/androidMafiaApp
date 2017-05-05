@@ -8,9 +8,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.dmytrobohdanov.getmafianumber.Fragments.GameFieldFragments.GameFieldFragment;
 import com.dmytrobohdanov.getmafianumber.Fragments.GetPlayersNumberFragment;
 import com.dmytrobohdanov.getmafianumber.Fragments.PlayersListFragment.PlayersListFragment;
-import com.dmytrobohdanov.getmafianumber.Fragments.TimerAndMusicFragment;
 import com.dmytrobohdanov.getmafianumber.R;
 
 public class MainActivity extends DrawerFragmentNavigationActivity {
@@ -47,7 +47,7 @@ public class MainActivity extends DrawerFragmentNavigationActivity {
                 break;
 
             case R.id.drawer_item_game_field:
-                showFragmentAddToBackStack(TimerAndMusicFragment.TAG, null);
+                showFragmentAddToBackStack(GameFieldFragment.TAG, null);
                 break;
 
             case R.id.drawer_item_players_list:
@@ -59,8 +59,8 @@ public class MainActivity extends DrawerFragmentNavigationActivity {
     @Override
     protected Fragment getFragmentToShowByTag(String fragmentTag, Object data) {
         switch (fragmentTag) {
-            case TimerAndMusicFragment.TAG:
-                return new TimerAndMusicFragment();
+            case GameFieldFragment.TAG:
+                return new GameFieldFragment();
 
             case PlayersListFragment.TAG:
                 return new PlayersListFragment();

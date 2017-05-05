@@ -1,12 +1,17 @@
 package com.dmytrobohdanov.getmafianumber.Utils.DataBaseUtils.DataModels;
 
 
+import com.google.firebase.database.Exclude;
+import com.google.firebase.database.IgnoreExtraProperties;
+
 import java.util.HashMap;
 
 /**
  * todo
  */
+@IgnoreExtraProperties
 public class GameDataModel {
+    @Exclude
     private int id;
     private String killedFirst;
     private HashMap<String, String> playersRoles;
@@ -32,6 +37,7 @@ public class GameDataModel {
         this.eventId = eventId;
     }
 
+    @Exclude
     public int getId() {
         return id;
     }

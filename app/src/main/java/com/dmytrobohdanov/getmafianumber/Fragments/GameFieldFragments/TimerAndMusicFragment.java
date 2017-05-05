@@ -1,4 +1,4 @@
-package com.dmytrobohdanov.getmafianumber.Fragments;
+package com.dmytrobohdanov.getmafianumber.Fragments.GameFieldFragments;
 
 
 import android.content.Context;
@@ -21,6 +21,7 @@ import butterknife.ButterKnife;
 
 public class TimerAndMusicFragment extends PlayerFragment {
     public static final String TAG = "timerMusicFrTag";
+    public static final String TITLE = "Timer";
     //constants
     private final int ONE_SEC = 1000;
     private final int HALF_MINUTE = 30000;
